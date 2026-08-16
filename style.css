@@ -1,0 +1,1525 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  min-height: 100%;
+  background: #020713;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "PingFang SC",
+    "Microsoft YaHei",
+    sans-serif;
+
+  color: white;
+  background: #020713;
+}
+
+button {
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+
+/* =====================================================
+   启动页面
+===================================================== */
+
+#start-screen {
+  position: fixed;
+  inset: 0;
+
+  z-index: 9999;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      #06356c 0,
+      #031936 30%,
+      #010711 72%
+    );
+}
+
+.start-bg {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      rgba(0, 91, 255, 0.08),
+      rgba(0, 0, 0, 0.3)
+    );
+}
+
+.start-grid {
+  position: absolute;
+  left: -50%;
+  bottom: -45%;
+
+  width: 200%;
+  height: 100%;
+
+  background-image:
+    linear-gradient(
+      rgba(0, 153, 255, 0.18) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 153, 255, 0.18) 1px,
+      transparent 1px
+    );
+
+  background-size: 45px 45px;
+
+  transform:
+    perspective(400px)
+    rotateX(65deg);
+
+  animation: gridMove 6s linear infinite;
+}
+
+@keyframes gridMove {
+
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 0 45px;
+  }
+
+}
+
+.start-glow {
+  position: absolute;
+
+  width: 310px;
+  height: 310px;
+
+  border-radius: 50%;
+
+  border:
+    1px solid rgba(0, 162, 255, 0.8);
+
+  box-shadow:
+    0 0 25px #008cff,
+    0 0 80px rgba(0, 140, 255, 0.5),
+    inset 0 0 40px rgba(0, 140, 255, 0.2);
+
+  animation:
+    rotateGlow 10s linear infinite;
+}
+
+.start-glow::before,
+.start-glow::after {
+  content: "";
+
+  position: absolute;
+
+  border-radius: 50%;
+
+  border:
+    1px dashed rgba(255, 204, 91, 0.55);
+}
+
+.start-glow::before {
+  inset: 22px;
+}
+
+.start-glow::after {
+  inset: -24px;
+}
+
+@keyframes rotateGlow {
+
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+.start-content {
+  position: relative;
+
+  width: 100%;
+
+  padding: 28px;
+
+  text-align: center;
+
+  z-index: 5;
+}
+
+.system-label {
+  margin-bottom: 20px;
+
+  font-size: 10px;
+
+  letter-spacing: 5px;
+
+  color: #37baff;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-bottom: 28px;
+
+  padding: 7px 14px;
+
+  border:
+    1px solid rgba(0, 174, 255, 0.4);
+
+  border-radius: 30px;
+
+  color: #a8e8ff;
+
+  font-size: 9px;
+
+  letter-spacing: 2px;
+}
+
+.status span {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #43ff9e;
+
+  box-shadow:
+    0 0 10px #43ff9e;
+
+  animation: statusBlink 1.5s infinite;
+}
+
+@keyframes statusBlink {
+
+  50% {
+    opacity: 0.3;
+  }
+
+}
+
+.start-content h1 {
+  font-size: 34px;
+
+  font-weight: 500;
+
+  color: #ffe6a2;
+
+  text-shadow:
+    0 0 18px rgba(255, 191, 63, 0.8);
+}
+
+.start-content h1 strong {
+  display: block;
+
+  margin-top: 8px;
+
+  font-size: 56px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #fff8dc,
+      #ffe084 40%,
+      #c98720
+    );
+
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.date {
+  margin: 24px auto 18px;
+
+  display: inline-block;
+
+  padding: 9px 24px;
+
+  border:
+    1px solid #008cff;
+
+  clip-path:
+    polygon(
+      8px 0,
+      calc(100% - 8px) 0,
+      100% 50%,
+      calc(100% - 8px) 100%,
+      8px 100%,
+      0 50%
+    );
+
+  color: #ffe6a0;
+
+  background:
+    rgba(0, 78, 155, 0.25);
+}
+
+.start-content p {
+  margin-bottom: 40px;
+
+  color: #b9ccdf;
+
+  font-size: 13px;
+
+  letter-spacing: 1px;
+}
+
+#start-btn {
+  position: relative;
+
+  width: 210px;
+  height: 54px;
+
+  border:
+    1px solid #2aaeff;
+
+  border-radius: 5px;
+
+  color: #fff0bf;
+
+  font-size: 15px;
+
+  letter-spacing: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 82, 164, 0.55),
+      rgba(1, 25, 62, 0.8)
+    );
+
+  box-shadow:
+    0 0 20px rgba(0, 141, 255, 0.35),
+    inset 0 0 15px rgba(0, 162, 255, 0.15);
+
+  overflow: hidden;
+}
+
+.button-light {
+  position: absolute;
+
+  top: 0;
+  left: -100%;
+
+  width: 60%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.35),
+      transparent
+    );
+
+  animation:
+    buttonLight 2.5s infinite;
+}
+
+@keyframes buttonLight {
+
+  to {
+    left: 150%;
+  }
+
+}
+
+.start-tip {
+  margin-top: 16px;
+
+  color: rgba(77, 190, 255, 0.6);
+
+  font-size: 8px;
+
+  letter-spacing: 4px;
+}
+
+
+/* =====================================================
+   主页面
+===================================================== */
+
+#main-page {
+  position: relative;
+
+  display: none;
+
+  min-height: 100vh;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      #020713,
+      #031431 45%,
+      #01040c
+    );
+}
+
+.page-bg {
+  position: fixed;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 50% 30%,
+      rgba(0, 108, 255, 0.15),
+      transparent 45%
+    );
+}
+
+.ambient-light {
+  position: fixed;
+
+  width: 300px;
+  height: 300px;
+
+  border-radius: 50%;
+
+  filter: blur(100px);
+
+  pointer-events: none;
+
+  opacity: 0.35;
+}
+
+.light-1 {
+  top: 15%;
+  left: -150px;
+
+  background: #005fff;
+}
+
+.light-2 {
+  top: 50%;
+  right: -160px;
+
+  background: #e69e29;
+}
+
+
+/* =====================================================
+   Hero
+===================================================== */
+
+.hero-header {
+  position: relative;
+
+  z-index: 2;
+
+  padding:
+    48px 20px
+    22px;
+
+  text-align: center;
+}
+
+.english-title {
+  color: #158dff;
+
+  font-size: 10px;
+
+  letter-spacing: 8px;
+
+  opacity: 0.9;
+}
+
+.hero-header h1 {
+  margin-top: 12px;
+
+  font-size: 27px;
+
+  color: #f1ca70;
+}
+
+.hero-header h1 strong {
+  display: block;
+
+  margin-top: -2px;
+
+  font-size: clamp(
+    53px,
+    15vw,
+    76px
+  );
+
+  line-height: 1.2;
+
+  font-weight: 800;
+
+  background:
+    linear-gradient(
+      #fff7d6,
+      #f1c667 48%,
+      #a56316
+    );
+
+  -webkit-background-clip: text;
+
+  color: transparent;
+
+  text-shadow:
+    0 0 25px rgba(255, 198, 75, 0.18);
+}
+
+.lunar-date {
+  display: inline-block;
+
+  margin-top: 13px;
+
+  padding:
+    6px 24px;
+
+  border:
+    1px solid #0877ef;
+
+  color: #ffe8aa;
+
+  font-size: 15px;
+
+  background:
+    rgba(0, 73, 150, 0.24);
+
+  box-shadow:
+    0 0 15px rgba(0, 139, 255, 0.2);
+}
+
+.wish-line {
+  margin-top: 13px;
+
+  color: #e7c271;
+
+  font-size: 13px;
+}
+
+.wish-line span {
+  margin: 0 8px;
+
+  color: #178cff;
+}
+
+
+/* =====================================================
+   Photo
+===================================================== */
+
+.photo-section {
+  position: relative;
+
+  width: 100%;
+
+  min-height: 510px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+}
+
+.photo-frame {
+  position: relative;
+
+  z-index: 4;
+
+  width: min(86vw, 430px);
+
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 25px 50px rgba(0, 0, 0, 0.45);
+}
+
+.photo-frame img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+}
+
+.photo-frame::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      transparent 60%,
+      rgba(1, 7, 20, 0.92)
+    );
+
+  pointer-events: none;
+}
+
+.photo-glow {
+  position: absolute;
+
+  width: 380px;
+  height: 380px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 195, 75, 0.18),
+      rgba(0, 107, 255, 0.12),
+      transparent 70%
+    );
+
+  box-shadow:
+    0 0 60px #0055ff;
+}
+
+.orbit {
+  position: absolute;
+
+  border-radius: 50%;
+
+  border:
+    1px solid #158dff;
+
+  box-shadow:
+    0 0 20px rgba(0, 123, 255, 0.5);
+}
+
+.orbit-1 {
+  width: 350px;
+  height: 350px;
+
+  animation:
+    spin 10s linear infinite;
+}
+
+.orbit-2 {
+  width: 410px;
+  height: 410px;
+
+  border-style: dashed;
+
+  border-color:
+    rgba(255, 192, 58, 0.6);
+
+  animation:
+    spinReverse 15s linear infinite;
+}
+
+.orbit-3 {
+  width: 470px;
+  height: 470px;
+
+  border-color:
+    rgba(0, 145, 255, 0.25);
+
+  animation:
+    spin 20s linear infinite;
+}
+
+@keyframes spin {
+
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+@keyframes spinReverse {
+
+  to {
+    transform: rotate(-360deg);
+  }
+
+}
+
+.scanner {
+  position: absolute;
+
+  z-index: 5;
+
+  left: 10%;
+
+  width: 80%;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #37c7ff,
+      transparent
+    );
+
+  box-shadow:
+    0 0 12px #00b7ff;
+
+  animation:
+    scan 4s linear infinite;
+
+  pointer-events: none;
+}
+
+@keyframes scan {
+
+  0% {
+    top: 15%;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    top: 85%;
+    opacity: 0;
+  }
+
+}
+
+
+/* =====================================================
+   主祝福
+===================================================== */
+
+.main-wishes {
+  position: relative;
+
+  z-index: 5;
+
+  margin-top: -60px;
+
+  padding: 30px 20px 40px;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      transparent,
+      rgba(1, 5, 14, 0.8)
+    );
+}
+
+.gold-title {
+  font-family:
+    "STKaiti",
+    "KaiTi",
+    serif;
+
+  font-size: clamp(
+    55px,
+    15vw,
+    78px
+  );
+
+  font-weight: 800;
+
+  line-height: 1;
+
+  background:
+    linear-gradient(
+      #fff3bb,
+      #edbd54 45%,
+      #a86816
+    );
+
+  -webkit-background-clip: text;
+
+  color: transparent;
+
+  filter:
+    drop-shadow(
+      0 8px 8px rgba(0, 0, 0, 0.6)
+    );
+}
+
+.gold-title + .gold-title {
+  margin-top: 4px;
+}
+
+.red-seal {
+  display: inline-block;
+
+  margin-top: 20px;
+
+  padding:
+    6px 7px;
+
+  background:
+    #bf1515;
+
+  border:
+    1px solid #ffb34b;
+
+  color: white;
+
+  border-radius: 3px;
+
+  font-family: serif;
+
+  font-size: 15px;
+
+  writing-mode: vertical-rl;
+}
+
+
+/* =====================================================
+   互动区域
+===================================================== */
+
+.interactive-section {
+  position: relative;
+
+  z-index: 5;
+
+  padding:
+    45px 18px 55px;
+
+  text-align: center;
+}
+
+.section-label {
+  color: #179cff;
+
+  font-size: 9px;
+
+  letter-spacing: 4px;
+}
+
+.interactive-section h2 {
+  margin:
+    10px 0 30px;
+
+  color: #ffe4a0;
+
+  font-size: 20px;
+}
+
+.wish-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 13px;
+
+  max-width: 500px;
+
+  margin: auto;
+}
+
+.wish-card {
+  position: relative;
+
+  min-height: 135px;
+
+  padding: 18px;
+
+  border:
+    1px solid rgba(0, 136, 255, 0.65);
+
+  border-radius: 7px;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(4, 33, 72, 0.9),
+      rgba(2, 10, 27, 0.95)
+    );
+
+  box-shadow:
+    inset 0 0 20px rgba(0, 98, 255, 0.08),
+    0 0 18px rgba(0, 104, 255, 0.12);
+
+  transition: 0.25s;
+}
+
+.wish-card:hover {
+  transform:
+    translateY(-4px);
+
+  box-shadow:
+    0 0 25px rgba(0, 129, 255, 0.35);
+}
+
+.wish-icon {
+  width: 44px;
+  height: 44px;
+
+  margin:
+    0 auto 12px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+
+  border:
+    1px solid #e8b84e;
+
+  color: #f9cb66;
+
+  font-size: 22px;
+
+  box-shadow:
+    0 0 15px rgba(255, 191, 55, 0.16);
+}
+
+.wish-card strong {
+  display: block;
+
+  color: #f6d584;
+
+  font-size: 17px;
+}
+
+.wish-card span {
+  display: block;
+
+  margin-top: 7px;
+
+  color: #38aefa;
+
+  font-size: 12px;
+}
+
+
+/* =====================================================
+   创业区
+===================================================== */
+
+.business-section {
+  position: relative;
+
+  z-index: 5;
+
+  padding:
+    20px 18px
+    60px;
+}
+
+.business-card {
+  position: relative;
+
+  max-width: 500px;
+
+  margin: auto;
+
+  padding:
+    38px 24px;
+
+  border:
+    1px solid rgba(255, 189, 53, 0.32);
+
+  border-radius: 9px;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(27, 29, 35, 0.88),
+      rgba(3, 19, 44, 0.92)
+    );
+
+  box-shadow:
+    inset 0 0 40px rgba(255, 189, 53, 0.04);
+}
+
+.business-tag {
+  color: #269fff;
+
+  letter-spacing: 3px;
+
+  font-size: 8px;
+}
+
+.business-card h2 {
+  margin:
+    13px 0 20px;
+
+  color: #f1cb74;
+
+  font-size: 24px;
+}
+
+.business-card p {
+  color: #d4dce7;
+
+  font-size: 14px;
+
+  line-height: 2;
+}
+
+.business-data {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  margin-top: 28px;
+
+  border-top:
+    1px solid rgba(0, 140, 255, 0.25);
+
+  padding-top: 20px;
+}
+
+.business-data div {
+  border-right:
+    1px solid rgba(0, 140, 255, 0.16);
+}
+
+.business-data div:last-child {
+  border-right: none;
+}
+
+.business-data span {
+  display: block;
+
+  color: #7398bd;
+
+  font-size: 10px;
+}
+
+.business-data strong {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #f6c961;
+
+  font-size: 17px;
+}
+
+
+/* =====================================================
+   Final
+===================================================== */
+
+.final-section {
+  position: relative;
+
+  z-index: 5;
+
+  min-height: 500px;
+
+  padding:
+    70px 20px
+    80px;
+
+  text-align: center;
+
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(0, 94, 190, 0.2),
+      transparent 55%
+    );
+}
+
+.final-small {
+  color: #299fff;
+
+  font-size: 10px;
+
+  letter-spacing: 3px;
+}
+
+.final-section h2 {
+  margin:
+    18px 0 34px;
+
+  font-size: 36px;
+
+  line-height: 1.5;
+
+  color: #f5d47c;
+}
+
+#birthday-btn {
+  position: relative;
+
+  width: 230px;
+  height: 60px;
+
+  border:
+    1px solid #dba63f;
+
+  color: #ffe8aa;
+
+  letter-spacing: 3px;
+
+  font-size: 15px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #6b3c0b,
+      #15254c,
+      #6b3c0b
+    );
+
+  background-size: 200%;
+
+  box-shadow:
+    0 0 25px rgba(255, 179, 46, 0.25);
+
+  animation:
+    birthdayButton 3s linear infinite;
+}
+
+@keyframes birthdayButton {
+
+  to {
+    background-position: 200% 0;
+  }
+
+}
+
+.final-section p {
+  margin-top: 35px;
+
+  color: #39b4ff;
+
+  font-size: 10px;
+
+  letter-spacing: 5px;
+}
+
+.date-bottom {
+  margin-top: 15px;
+
+  color: #d8e9ff;
+
+  font-size: 18px;
+
+  letter-spacing: 5px;
+}
+
+
+/* =====================================================
+   弹窗
+===================================================== */
+
+#wish-popup,
+#final-popup {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 9000;
+
+  display: none;
+
+  justify-content: center;
+  align-items: center;
+
+  padding: 24px;
+
+  background:
+    rgba(0, 4, 14, 0.85);
+
+  backdrop-filter:
+    blur(12px);
+}
+
+.popup-card {
+  width: 100%;
+  max-width: 340px;
+
+  padding:
+    40px 25px;
+
+  border:
+    1px solid #138cff;
+
+  border-radius: 10px;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      145deg,
+      #071934,
+      #020812
+    );
+
+  box-shadow:
+    0 0 45px rgba(0, 128, 255, 0.32);
+}
+
+.popup-icon {
+  margin-bottom: 15px;
+
+  color: #ffd266;
+
+  font-size: 45px;
+}
+
+.popup-small {
+  color: #1fa0ff;
+
+  font-size: 9px;
+
+  letter-spacing: 4px;
+}
+
+.popup-card h2 {
+  margin:
+    12px 0;
+
+  color: #ffd77d;
+
+  font-size: 32px;
+}
+
+.popup-card p {
+  color: #cdd7e6;
+
+  line-height: 1.8;
+
+  font-size: 14px;
+}
+
+.popup-card button {
+  margin-top: 25px;
+
+  padding:
+    11px 30px;
+
+  border:
+    1px solid #e6af40;
+
+  background:
+    transparent;
+
+  color: #ffd878;
+}
+
+
+/* =====================================================
+   最终祝福
+===================================================== */
+
+.final-popup-content {
+  position: relative;
+
+  width: 100%;
+  max-width: 420px;
+
+  padding:
+    50px 25px;
+
+  text-align: center;
+
+  overflow: hidden;
+
+  border:
+    1px solid rgba(255, 195, 75, 0.7);
+
+  background:
+    linear-gradient(
+      160deg,
+      #071634,
+      #030811
+    );
+
+  box-shadow:
+    0 0 80px rgba(255, 176, 49, 0.28);
+}
+
+.final-light {
+  position: absolute;
+
+  left: 50%;
+  top: 40%;
+
+  transform:
+    translate(-50%, -50%);
+
+  width: 300px;
+  height: 300px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 188, 60, 0.13);
+
+  filter:
+    blur(60px);
+}
+
+.final-popup-content > * {
+  position: relative;
+}
+
+.final-mini {
+  color: #299fff;
+
+  font-size: 10px;
+
+  letter-spacing: 6px;
+}
+
+.final-popup-content h1 {
+  margin:
+    20px 0;
+
+  font-size: 55px;
+
+  line-height: 1.25;
+
+  background:
+    linear-gradient(
+      #fff7d1,
+      #eebc52,
+      #aa681b
+    );
+
+  -webkit-background-clip: text;
+
+  color: transparent;
+}
+
+.final-popup-content p {
+  color: #f4e4bf;
+
+  font-size: 15px;
+
+  line-height: 2.2;
+}
+
+.final-popup-content strong {
+  display: block;
+
+  margin-top: 25px;
+
+  color: #45baff;
+
+  letter-spacing: 4px;
+}
+
+#close-final {
+  width: 44px;
+  height: 44px;
+
+  margin-top: 28px;
+
+  border-radius: 50%;
+
+  color: #fff;
+
+  background:
+    #9d1b1b;
+
+  font-size: 20px;
+}
+
+
+/* =====================================================
+   音乐
+===================================================== */
+
+#music-btn {
+  position: fixed;
+
+  right: 16px;
+  top: 18px;
+
+  z-index: 8000;
+
+  display: none;
+
+  width: 42px;
+  height: 42px;
+
+  border-radius: 50%;
+
+  border:
+    1px solid #1d9cff;
+
+  color: #f8ce70;
+
+  background:
+    rgba(2, 18, 42, 0.8);
+
+  box-shadow:
+    0 0 17px rgba(0, 130, 255, 0.3);
+}
+
+#music-btn.playing {
+  animation:
+    musicRotate 4s linear infinite;
+}
+
+@keyframes musicRotate {
+
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+
+/* =====================================================
+   特效层
+===================================================== */
+
+#effects-layer {
+  position: fixed;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: 8500;
+
+  overflow: hidden;
+}
+
+.falling-item {
+  position: absolute;
+
+  top: -40px;
+
+  animation:
+    falling linear forwards;
+
+  text-shadow:
+    0 0 12px currentColor;
+}
+
+@keyframes falling {
+
+  to {
+    transform:
+      translateY(110vh)
+      rotate(520deg);
+
+    opacity: 0;
+  }
+
+}
+
+
+/* =====================================================
+   烟花
+===================================================== */
+
+#fireworks {
+  position: fixed;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 8400;
+
+  pointer-events: none;
+}
+
+
+/* =====================================================
+   手机
+===================================================== */
+
+@media (max-width: 430px) {
+
+  .photo-section {
+    min-height: 470px;
+  }
+
+  .photo-frame {
+    width: 90vw;
+  }
+
+  .orbit-1 {
+    width: 310px;
+    height: 310px;
+  }
+
+  .orbit-2 {
+    width: 365px;
+    height: 365px;
+  }
+
+  .orbit-3 {
+    width: 420px;
+    height: 420px;
+  }
+
+}
+
+/* ===============================
+   最终祝福页面烟花
+================================ */
+
+#final-fireworks {
+
+  position:absolute;
+
+  inset:0;
+
+  width:100%;
+
+  height:100%;
+
+  pointer-events:none;
+
+  z-index:0;
+
+}
+
+
+/* 保证祝福内容在烟花上层 */
+
+.final-popup-content {
+
+  z-index:2;
+
+}

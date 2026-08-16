@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  >
+
+  <meta name="theme-color" content="#020817">
+
+  <title>爸爸生日快乐</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- 背景音乐 -->
+  <audio
+    id="birthday-music"
+    src="birthday.mp3"
+    preload="auto"
+    loop
+  ></audio>
+
+
+  <!-- =====================================================
+       启动页面
+  ====================================================== -->
+
+  <section id="start-screen">
+
+    <div class="start-bg"></div>
+    <div class="start-grid"></div>
+    <div class="start-glow"></div>
+
+    <div class="start-particles" id="start-particles"></div>
+
+    <div class="start-content">
+
+      <div class="system-label">
+        BIRTHDAY SYSTEM · 2026
+      </div>
+
+      <div class="status">
+        <span></span>
+        SYSTEM READY
+      </div>
+
+      <h1>
+        爸爸
+        <strong>生日快乐</strong>
+      </h1>
+
+      <div class="date">
+        农历七月初五
+      </div>
+
+      <p>
+        新的一岁，愿所有努力都有回响
+      </p>
+
+      <button id="start-btn">
+        <span class="button-light"></span>
+        启动生日系统
+      </button>
+
+      <div class="start-tip">
+        TAP TO START
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       主页面
+  ====================================================== -->
+
+  <main id="main-page">
+
+    <!-- 固定背景 -->
+    <div class="page-bg"></div>
+
+    <!-- 动态光 -->
+    <div class="ambient-light light-1"></div>
+    <div class="ambient-light light-2"></div>
+
+    <!-- 星光 -->
+    <div id="particles"></div>
+
+
+    <!-- 顶部 -->
+    <header class="hero-header">
+
+      <div class="english-title">
+        HAPPY BIRTHDAY
+      </div>
+
+      <h1>
+        爸爸
+        <strong>生日快乐</strong>
+      </h1>
+
+      <div class="lunar-date">
+        农历七月初五
+      </div>
+
+      <div class="wish-line">
+        身体健康
+        <span>|</span>
+        平安喜乐
+        <span>|</span>
+        万事顺意
+      </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         照片主视觉
+    ====================================================== -->
+
+    <section class="photo-section">
+
+      <div class="orbit orbit-1"></div>
+      <div class="orbit orbit-2"></div>
+      <div class="orbit orbit-3"></div>
+
+      <div class="photo-glow"></div>
+
+      <div class="photo-frame">
+
+        <img
+          src="dad-birthday.png"
+          alt="爸爸生日快乐"
+        >
+
+      </div>
+
+      <div class="scanner"></div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         主祝福
+    ====================================================== -->
+
+    <section class="main-wishes">
+
+      <div class="gold-title">
+        事业有成
+      </div>
+
+      <div class="gold-title">
+        财源广进
+      </div>
+
+      <div class="red-seal">
+        顺利
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         互动按钮
+    ====================================================== -->
+
+    <section class="interactive-section">
+
+      <div class="section-label">
+        BIRTHDAY WISH SYSTEM
+      </div>
+
+      <h2>
+        点击开启爸爸的新一年
+      </h2>
+
+
+      <div class="wish-grid">
+
+        <button
+          class="wish-card"
+          data-type="career"
+        >
+
+          <div class="wish-icon">
+            ↗
+          </div>
+
+          <strong>
+            事业有成
+          </strong>
+
+          <span>
+            步步高升
+          </span>
+
+        </button>
+
+
+        <button
+          class="wish-card"
+          data-type="money"
+        >
+
+          <div class="wish-icon">
+            ¥
+          </div>
+
+          <strong>
+            财源广进
+          </strong>
+
+          <span>
+            财富丰盈
+          </span>
+
+        </button>
+
+
+        <button
+          class="wish-card"
+          data-type="future"
+        >
+
+          <div class="wish-icon">
+            ★
+          </div>
+
+          <strong>
+            前程似锦
+          </strong>
+
+          <span>
+            未来可期
+          </span>
+
+        </button>
+
+
+        <button
+          class="wish-card"
+          data-type="health"
+        >
+
+          <div class="wish-icon">
+            ♥
+          </div>
+
+          <strong>
+            身体健康
+          </strong>
+
+          <span>
+            平安喜乐
+          </span>
+
+        </button>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         创业祝福
+    ====================================================== -->
+
+    <section class="business-section">
+
+      <div class="business-card">
+
+        <div class="business-tag">
+          FOR YOUR NEW JOURNEY
+        </div>
+
+        <h2>
+          创业征途 · 一路向上
+        </h2>
+
+        <p>
+          愿每一次选择都有收获，
+          <br>
+          每一份坚持都开花结果。
+          <br>
+          愿事业蒸蒸日上，
+          <br>
+          财源滚滚而来。
+        </p>
+
+        <div class="business-data">
+
+          <div>
+            <span>事业</span>
+            <strong>100%</strong>
+          </div>
+
+          <div>
+            <span>财富</span>
+            <strong>100%</strong>
+          </div>
+
+          <div>
+            <span>幸运</span>
+            <strong>MAX</strong>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         最终生日按钮
+    ====================================================== -->
+
+    <section class="final-section">
+
+      <div class="final-small">
+        2026 · 农历七月初五
+      </div>
+
+      <h2>
+        愿您岁岁平安
+        <br>
+        年年如意
+      </h2>
+
+      <button id="birthday-btn">
+        <span></span>
+        开启生日烟花
+      </button>
+
+      <p>
+        HAPPY BIRTHDAY TO YOU
+      </p>
+
+      <div class="date-bottom">
+        2026.08.17
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- =====================================================
+       弹窗
+  ====================================================== -->
+
+  <div id="wish-popup">
+
+    <div class="popup-card">
+
+      <div class="popup-icon" id="popup-icon">
+        ✦
+      </div>
+
+      <div class="popup-small">
+        BIRTHDAY WISH
+      </div>
+
+      <h2 id="popup-title">
+        事业有成
+      </h2>
+
+      <p id="popup-text">
+        愿新的一岁事业腾飞，一路高升。
+      </p>
+
+      <button id="close-popup">
+        收下祝福
+      </button>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- 最终大祝福 -->
+  <div id="final-popup">
+    
+    <canvas id="final-fireworks"></canvas>
+
+    <div class="final-popup-content">
+
+      <div class="final-light"></div>
+
+      <div class="final-mini">
+        HAPPY BIRTHDAY
+      </div>
+
+      <h1>
+        爸爸
+        <br>
+        生日快乐
+      </h1>
+
+      <p>
+        愿您新的一岁
+        <br>
+        事业有成 · 财源广进
+        <br>
+        身体健康 · 平安喜乐
+        <br>
+        前程似锦 · 万事顺意
+      </p>
+
+      <strong>
+        2026.08.17
+      </strong>
+
+      <button id="close-final">
+        ♥
+      </button>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- 音乐按钮 -->
+  <button id="music-btn" aria-label="music">
+    ♪
+  </button>
+
+
+
+  <!-- 烟花 -->
+  <canvas id="fireworks"></canvas>
+
+
+
+  <!-- 金币 / 星光 / 祝福掉落层 -->
+  <div id="effects-layer"></div>
+
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
